@@ -160,7 +160,7 @@ function gotoDashboard() {
 
         $('#taskform').animate({height:"0px"},speed);
         window.open("/ui-fw/script/empty.jsp", "taskform");
-    }
+      }
 		
 	/*********************************************************************
 	Methods and variablles to handle Session timeout management
@@ -334,7 +334,7 @@ function gotoDashboard() {
         height: 190,
         width:600,
         buttons: {
-				 End_Vacation: function(){
+				 '<fmt:message key="org_intalio_uifw_message.button.endVacation"/>': function(){
 					 endVacation();
 			   	  }
        }
@@ -1059,13 +1059,13 @@ function endVacation()
           name : '_creationDate', 
           width : width*0.15, 
           sortable : true, 
-          align: 'left'},
+          align: 'center'},
         {
           display: '<fmt:message key="com_intalio_bpms_workflow_taskHolder_dueDate"/>', 
           name : '_deadline', 
           width : width*0.15, 
           sortable : true, 
-          align: 'left'},
+          align: 'center'},
         {
           display: '<fmt:message key="com_intalio_bpms_workflow_taskHolder_priority"/>', 
           name : '_priority', 
@@ -1136,13 +1136,13 @@ function endVacation()
   name : '_priority', 
   width : width*0.2, 
   sortable : true, 
-  align: 'left'},
+  align: 'center'},
 	{
 	  display: '<fmt:message key="com_intalio_bpms_workflow_taskHolder_creationDateTime"/>', 
 	  name : '_creationDate', 
 	  width : width*0.2, 
 	  sortable : true, 
-	  align: 'left'},
+	  align: 'center'},
         {
           display: '<fmt:message key="com_intalio_bpms_workflow_taskHolder_userOwners"/>', 
           name : '_attachments', 
@@ -1191,7 +1191,7 @@ function endVacation()
 	  name : '_creationDate', 
 	  width : width*0.2, 
 	  sortable : true, 
-	  align: 'left'},
+	  align: 'center'},
     {
       display: '<fmt:message key="com_intalio_bpms_workflow_taskHolder_userOwners"/>', 
       name : '_attachments', 
@@ -1288,8 +1288,8 @@ function endVacation()
       if(current == 'tabNotif' || current == 'tabPipa'){
     	  document.getElementById('isViewTask').value="false";
     	  document.getElementById('formURL').value="";
-		  document.getElementById('taskType').value="";
-		  //resetQueryString(current);
+          document.getElementById('taskType').value="";
+	  resetQueryString(current);
       }
       refresh(true);
     });
@@ -1414,19 +1414,8 @@ function endVacation()
         return this.nodeName === name;
     });
   };
-    
-    function setSearch(){
-  	  
-  	  var searchUser = document.getElementById('searchUser').value;
-  	  if(searchUser!="" && searchUser != 'null'){
-  			  $('#q').val(searchUser);
-  			  $("#qtype option[value='_userOwners']").attr("selected", "selected");
-  			  setTimeout( function () { $("#q").focus(); }, 200);
-  			  //$("#q").focus();
-  	  }
-     }
-    
-    /*This function will be used to resetQueryString in the browser address bar*/
+  
+   /*This function will be used to resetQueryString in the browser address bar*/
     
     function resetQueryString(current){
     	var k = location.search.indexOf("unid");
@@ -1439,6 +1428,4 @@ function endVacation()
     
 
 </script>
-
- <body onload="setSearch();">
 
